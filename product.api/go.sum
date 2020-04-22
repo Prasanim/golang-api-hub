@@ -1,1 +1,4 @@
+github.com/Prasanim/golang-api-hub v0.0.0-20200422102340-777c26ea7dbd h1:6gL7vnMygw+vvqYHywouWaB7bgN0x46IBXs+xHIBsIQ=
+github.com/Prasanim/golang-api-hub v0.0.0-20200422102340-777c26ea7dbd/go.mod h1:OBZAjAsBFGlJDWIVfoDLpZS/fijWFvnBcdCp9niS8j4=
+github.com/Prasanim/golang-api-hub v0.0.0-20200422111202-02d4e713ba81 h1:aJNpCazBqTRHcGCpWH/XlfIChWh3m/dJNVWZ24yT15M=
 github.com/gorilla/websocket v1.4.2/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=

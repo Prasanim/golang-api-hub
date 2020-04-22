@@ -3,7 +3,6 @@ package handlers
 import (
 	"log"
 	"net/http"
-
 	"github.com/Prasanim/golang-api-hub/product.api/data"
 )
 
