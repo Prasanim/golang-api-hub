@@ -1,13 +1,14 @@
 package main
 
 import (
-	"PRODUCTAPI/handlers"
 	"context"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
 	"time"
+
+	"github.com/Prasanim/golang-api-hub/product.api/handlers"
 )
 
 func main() {
