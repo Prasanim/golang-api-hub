@@ -8,34 +8,37 @@ import (
 	"os/signal"
 	"time"
 
+	"github.com/Prasanim/golang-api-hub/product.api/env"
 	"github.com/Prasanim/golang-api-hub/product.api/handlers"
 )
 
-func main() {
-	l := log.New(os.Stdout, "product-api", log.LstdFlags)
+var binAddress = env.String("BIND_ADDRESS", false, ":9090", "Bind address for server")
 
-	//hh := handlers.NewHello(l)
-	//gh := handlers.NewGoodbye(l)
+func main() {
+	env.Parse()
+
+	l := log.New(os.Stdout, "product-api ", log.LstdFlags)
+
 	ph := handlers.NewProducts(l)
 
 	sm := http.NewServeMux()
-	//sm.Handle("/", hh)
-	//sm.Handle("/goodbye", gh)
 	sm.Handle("/", ph)
 
 	s := &http.Server{
-		Addr:         "9090",
+		Addr:         *binAddress,
 		Handler:      sm,
 		IdleTimeout:  120 * time.Second,
-		ReadTimeout:  1 * time.Second,
-		WriteTimeout: 1 * time.Second,
+		ReadTimeout:  5 * time.Second,
+		WriteTimeout: 10 * time.Second,
 	}
 
 	go func() {
 		l.Println("Starting server on port 9090")
+
 		err := s.ListenAndServe()
 		if err != nil {
-			l.Printf("Error starting server : %\n", err)
+			l.Printf("Error starting server : %s\n", err)
+			os.Exit(1)
 		}
 	}()
 
